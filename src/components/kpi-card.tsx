@@ -42,7 +42,7 @@ export function KpiCard({ title, value, icon, trend, trendKey, isNegative = fals
       </CardHeader>
       <CardContent>
         <div className="text-2xl font-bold h-8 flex items-center">
-          {isMounted || title === 'Credit Score'
+          {isMounted
             ? (title !== 'Credit Score' ? formatCurrency(value) : value)
             : <Skeleton className="h-7 w-32" />}
         </div>

@@ -3,6 +3,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { formatCurrency } from '@/lib/utils';
 import { TrendingUp, TrendingDown } from 'lucide-react';
+import { Skeleton } from './ui/skeleton';
+import { useState, useEffect } from 'react';
 
 type KpiCardProps = {
   title: string;
@@ -14,6 +16,12 @@ type KpiCardProps = {
 };
 
 export function KpiCard({ title, value, icon, trend, trendKey, isNegative = false }: KpiCardProps) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  
   let trendPercentage: number | null = null;
   if (trend && trend.length > 1 && trendKey) {
     const latest = trend[1][trendKey];
@@ -33,8 +41,10 @@ export function KpiCard({ title, value, icon, trend, trendKey, isNegative = fals
         {icon}
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold">
-          {title !== 'Credit Score' ? formatCurrency(value) : value}
+        <div className="text-2xl font-bold h-8 flex items-center">
+          {isMounted || title === 'Credit Score'
+            ? (title !== 'Credit Score' ? formatCurrency(value) : value)
+            : <Skeleton className="h-7 w-32" />}
         </div>
         {trendPercentage !== null && (
           <p className="text-xs text-muted-foreground flex items-center">

@@ -1,0 +1,16 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export default function SettingsPage() {
+  return (
+    <div className="p-4 md:p-8">
+      <Card>
+        <CardHeader>
+          <CardTitle>Settings</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p>This is the settings page. Content will be added here soon.</p>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}

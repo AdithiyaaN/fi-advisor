@@ -2,17 +2,23 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
+import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
+import { getFinancialData } from '@/lib/mcp-data';
+import { ChatAssistant } from '@/components/chat-assistant';
+import { AppSidebar } from '@/components/app-sidebar';
 
 export const metadata: Metadata = {
   title: 'Fi Advisor',
   description: 'Your personal AI-powered financial advisor.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const financialData = await getFinancialData();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -34,7 +40,11 @@ export default function RootLayout({
         )}
         suppressHydrationWarning
       >
-        {children}
+        <SidebarProvider>
+          <AppSidebar user={financialData.user} />
+          <SidebarInset>{children}</SidebarInset>
+          <ChatAssistant financialData={financialData} />
+        </SidebarProvider>
         <Toaster />
       </body>
     </html>

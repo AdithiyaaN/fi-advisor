@@ -1,6 +1,7 @@
 "use server";
 
 import { financialInsights } from "@/ai/flows/financial-insights-prompt";
+import { summarizeFinancialData } from "@/ai/flows/summarize-financial-data";
 import { FinancialData } from "@/lib/mcp-data";
 import { getNewStockValue } from "@/services/finance-service";
 
@@ -73,4 +74,19 @@ export async function getRealtimeFinancialData(
   }
 
   return newData;
+}
+
+export async function getAiSummary(financialData: FinancialData) {
+  try {
+    const { summary } = await summarizeFinancialData({
+      financialData: JSON.stringify(financialData),
+    });
+    return { success: true, summary };
+  } catch (error) {
+    console.error(error);
+    return {
+      success: false,
+      error: "An error occurred while generating the financial summary.",
+    };
+  }
 }

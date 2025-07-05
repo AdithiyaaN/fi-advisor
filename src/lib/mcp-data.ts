@@ -11,7 +11,7 @@ export type FinancialData = {
   };
   assets: {
     cash: Array<{ account: string; balance: number }>;
-    investments: Array<{ name: string; type: string; value: number; annualPerformance: number }>;
+    investments: Array<{ name: string; type: string; value: number; annualPerformance: number; ticker?: string }>;
     epf: { balance: number };
     property: Array<{ address: string; value: number }>;
   };
@@ -29,8 +29,8 @@ export const mcpData: FinancialData = {
     email: 'alex.doe@example.com',
   },
   summary: {
-    netWorth: 5500000,
-    assets: 7500000,
+    netWorth: 5250000,
+    assets: 7250000,
     liabilities: 2000000,
     creditScore: 780,
   },
@@ -40,9 +40,11 @@ export const mcpData: FinancialData = {
       { account: 'Checking Account', balance: 150000 },
     ],
     investments: [
-      { name: 'Nifty 50 Index Fund', type: 'Mutual Fund', value: 1200000, annualPerformance: 15 },
+      { name: 'Nifty 50 Index Fund', type: 'Mutual Fund', value: 1200000, annualPerformance: 15, ticker: 'NIFTY50' },
       { name: 'Bluechip Equity Fund', type: 'Mutual Fund', value: 800000, annualPerformance: 12 },
-      { name: 'Tech Stocks Portfolio', type: 'Stocks', value: 2500000, annualPerformance: 22 },
+      { name: 'Alphabet Inc. (Google)', type: 'Stocks', value: 1000000, annualPerformance: 22, ticker: 'GOOGL' },
+      { name: 'Reliance Industries', type: 'Stocks', value: 750000, annualPerformance: 18, ticker: 'RELIANCE.BSE' },
+      { name: 'Tata Motors', type: 'Stocks', value: 500000, annualPerformance: 30, ticker: 'TATAMOTORS.BSE' },
       { name: 'Government Bonds', type: 'Bonds', value: 350000, annualPerformance: 7 },
     ],
     epf: {
@@ -67,7 +69,7 @@ export const mcpData: FinancialData = {
     { date: '2023-07-01', value: 4800000 },
     { date: '2023-10-01', value: 5100000 },
     { date: '2024-01-01', value: 5300000 },
-    { date: '2024-04-01', value: 5500000 },
+    { date: '2024-04-01', value: 5250000 },
   ],
   creditScoreHistory: [
     { date: '2023-01-01', score: 750 },

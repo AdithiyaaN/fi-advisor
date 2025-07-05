@@ -4,6 +4,7 @@ import { getAiSummary } from '@/app/actions';
 import { FinancialData } from '@/lib/mcp-data';
 import { Skeleton } from './ui/skeleton';
 import React, { useState, useEffect } from 'react';
+import { ScrollArea } from './ui/scroll-area';
 
 type FinancialSummaryProps = {
   financialData: FinancialData;
@@ -35,9 +36,11 @@ export function FinancialSummary({ financialData }: FinancialSummaryProps) {
   }
 
   return (
-    <p className="text-sm text-muted-foreground whitespace-pre-wrap">
-      {summary}
-    </p>
+    <ScrollArea className="h-72">
+      <p className="text-sm text-muted-foreground whitespace-pre-wrap pr-4">
+        {summary}
+      </p>
+    </ScrollArea>
   );
 }
 
@@ -46,7 +49,10 @@ function FinancialSummarySkeleton() {
     <div className="space-y-2">
       <Skeleton className="h-4 w-full" />
       <Skeleton className="h-4 w-full" />
+      <Skeleton className="h-4 w-full" />
       <Skeleton className="h-4 w-4/5" />
+      <Skeleton className="h-4 w-full" />
+      <Skeleton className="h-4 w-2/3" />
     </div>
   );
 }

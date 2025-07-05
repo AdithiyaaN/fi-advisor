@@ -13,7 +13,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Bot, MessageCircle, Send, User } from 'lucide-react';
+import { Bot, Send, User } from 'lucide-react';
 import { FinancialData } from '@/lib/mcp-data';
 import { askFinancialQuestion } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
@@ -84,7 +84,7 @@ export function ChatAssistant({ financialData }: ChatAssistantProps) {
         className="fixed bottom-8 right-8 h-16 w-16 rounded-full shadow-lg"
         size="icon"
       >
-        <MessageCircle className="h-8 w-8" />
+        <Bot className="h-8 w-8" />
         <span className="sr-only">Open Chat</span>
       </Button>
 

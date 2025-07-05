@@ -25,37 +25,37 @@ type DashboardProps = {
 
 export function Dashboard({ financialData }: DashboardProps) {
   return (
-    <div className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
+    <div className="flex flex-1 flex-col gap-6 p-4 md:gap-8 md:p-8 lg:p-10">
       <PageHeader userName={financialData.user.name} />
       <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
         <KpiCard
           title="Total Assets"
           value={financialData.summary.assets}
-          icon={<Landmark className="h-4 w-4 text-muted-foreground" />}
+          icon={<Landmark className="h-5 w-5" />}
         />
         <KpiCard
           title="Total Liabilities"
           value={financialData.summary.liabilities}
-          icon={<Receipt className="h-4 w-4 text-muted-foreground" />}
+          icon={<Receipt className="h-5 w-5" />}
           isNegative
         />
         <KpiCard
           title="Net Worth"
           value={financialData.summary.netWorth}
-          icon={<Wallet className="h-4 w-4 text-muted-foreground" />}
+          icon={<Wallet className="h-5 w-5" />}
           trend={financialData.netWorthHistory.slice(-2)}
           trendKey="value"
         />
         <KpiCard
           title="Credit Score"
           value={financialData.summary.creditScore}
-          icon={<BadgePercent className="h-4 w-4 text-muted-foreground" />}
+          icon={<BadgePercent className="h-5 w-5" />}
           trend={financialData.creditScoreHistory.slice(-2)}
           trendKey="score"
         />
       </div>
       <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
-        <Card className="xl:col-span-2">
+        <Card className="xl:col-span-2 shadow-xl ring-8 ring-white dark:ring-black/20">
           <CardHeader>
             <CardTitle>Net Worth Over Time</CardTitle>
             <CardDescription>
@@ -66,7 +66,7 @@ export function Dashboard({ financialData }: DashboardProps) {
             <NetWorthChart data={financialData.netWorthHistory} />
           </CardContent>
         </Card>
-        <Card>
+        <Card className="shadow-lg">
           <CardHeader>
             <CardTitle>Asset vs. Liability</CardTitle>
             <CardDescription>A breakdown of your financial standing.</CardDescription>
@@ -77,7 +77,7 @@ export function Dashboard({ financialData }: DashboardProps) {
         </Card>
       </div>
       <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
-        <Card className="lg:col-span-1 xl:col-span-1">
+        <Card className="shadow-lg xl:col-span-2">
           <CardHeader>
             <CardTitle>Investment Performance</CardTitle>
             <CardDescription>Annual performance of your investments.</CardDescription>
@@ -86,7 +86,7 @@ export function Dashboard({ financialData }: DashboardProps) {
             <InvestmentPerformanceChart data={financialData.assets.investments} />
           </CardContent>
         </Card>
-        <Card className="lg:col-span-1 xl:col-span-2">
+        <Card className="shadow-lg xl:col-span-1">
           <CardHeader>
             <CardTitle>AI Financial Summary</CardTitle>
             <CardDescription>

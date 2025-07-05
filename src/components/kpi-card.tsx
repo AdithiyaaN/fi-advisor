@@ -31,25 +31,29 @@ export function KpiCard({ title, value, icon, trend, trendKey, isNegative = fals
     }
   }
 
-  const TrendIcon = trendPercentage !== null && trendPercentage >= 0 ? TrendingUp : TrendingDown;
-  const trendColor = trendPercentage !== null && trendPercentage >= 0 ? 'text-emerald-500' : 'text-red-500';
+  const TrendIcon = trendPercentage === null ? null : trendPercentage >= 0 ? TrendingUp : TrendingDown;
+  const isGoodTrend = trendPercentage === null ? false : isNegative ? trendPercentage < 0 : trendPercentage >= 0;
+  const trendColor = isGoodTrend ? 'text-emerald-500' : 'text-red-500';
 
   return (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium">{title}</CardTitle>
-        {icon}
+    <Card className="shadow-lg">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+          {icon}
+          <span>{title}</span>
+        </CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="text-2xl font-bold h-8 flex items-center">
+      <CardContent className="pt-0">
+        <div className="text-3xl font-bold">
           {isMounted
             ? (title !== 'Credit Score' ? formatCurrency(value) : value)
-            : <Skeleton className="h-7 w-32" />}
+            : <Skeleton className="h-8 w-32" />}
         </div>
-        {trendPercentage !== null && (
-          <p className="text-xs text-muted-foreground flex items-center">
-            <TrendIcon className={`mr-1 h-4 w-4 ${trendColor}`} />
-            <span className={trendColor}>{trendPercentage.toFixed(2)}%</span> from last period
+        {trendPercentage !== null && isMounted && TrendIcon && (
+          <p className="text-xs text-muted-foreground flex items-center pt-1">
+            <TrendIcon className={`mr-1 h-3 w-3 ${trendColor}`} />
+            <span className={trendColor}>{Math.abs(trendPercentage).toFixed(2)}%</span>
+            <span className="ml-1">from last period</span>
           </p>
         )}
       </CardContent>

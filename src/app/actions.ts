@@ -3,7 +3,7 @@
 import { financialInsights } from "@/ai/flows/financial-insights-prompt";
 import { summarizeFinancialData } from "@/ai/flows/summarize-financial-data";
 import { FinancialData } from "@/lib/mcp-data";
-import { getNewStockValue } from "@/services/finance-service";
+import { getStockPrice } from "@/services/finance-service";
 
 export async function askFinancialQuestion(
   question: string,
@@ -32,16 +32,25 @@ export async function getRealtimeFinancialData(
 
   let totalAssetDelta = 0;
 
+  type Investment = {
+    name: string;
+    type: string;
+    value: number;
+    annualPerformance: number;
+    ticker?: string;
+    shares?: number;
+  };
+
   const investmentPromises = newData.assets.investments
-    .filter((inv: { type: string; ticker?: string }) => inv.type === 'Stocks' && inv.ticker)
-    .map(async (investment: { name: string; value: number; ticker: string }) => {
+    .filter((inv: Investment) => inv.type === 'Stocks' && inv.ticker && inv.shares)
+    .map(async (investment: Investment) => {
       const originalValue = investment.value;
-      // In our mock service, originalValue is used to calculate a new pseudo-random value.
-      // In a real scenario, you'd use the ticker and number of shares to get the new value.
-      const newValue = await getNewStockValue(investment.ticker, originalValue);
+      // In a real scenario, you get the latest price and multiply by number of shares.
+      const newPrice = await getStockPrice(investment.ticker!);
+      const newValue = newPrice * investment.shares!;
       const delta = newValue - originalValue;
       totalAssetDelta += delta;
-      investment.value = newValue;
+      investment.value = parseFloat(newValue.toFixed(2));
       return investment;
     });
 

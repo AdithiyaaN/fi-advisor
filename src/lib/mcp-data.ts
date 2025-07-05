@@ -11,7 +11,7 @@ export type FinancialData = {
   };
   assets: {
     cash: Array<{ account: string; balance: number }>;
-    investments: Array<{ name: string; type: string; value: number; annualPerformance: number; ticker?: string }>;
+    investments: Array<{ name: string; type: string; value: number; annualPerformance: number; ticker?: string; shares?: number }>;
     epf: { balance: number };
     property: Array<{ address: string; value: number }>;
   };
@@ -42,9 +42,9 @@ export const mcpData: FinancialData = {
     investments: [
       { name: 'Nifty 50 Index Fund', type: 'Mutual Fund', value: 1200000, annualPerformance: 15, ticker: 'NIFTY50' },
       { name: 'Bluechip Equity Fund', type: 'Mutual Fund', value: 800000, annualPerformance: 12 },
-      { name: 'Alphabet Inc. (Google)', type: 'Stocks', value: 1000000, annualPerformance: 22, ticker: 'GOOGL' },
-      { name: 'Reliance Industries', type: 'Stocks', value: 750000, annualPerformance: 18, ticker: 'RELIANCE.BSE' },
-      { name: 'Tata Motors', type: 'Stocks', value: 500000, annualPerformance: 30, ticker: 'TATAMOTORS.BSE' },
+      { name: 'Alphabet Inc. (Google)', type: 'Stocks', value: 1000000, annualPerformance: 22, ticker: 'GOOGL', shares: 66 },
+      { name: 'Reliance Industries', type: 'Stocks', value: 750000, annualPerformance: 18, ticker: 'RELIANCE.BSE', shares: 250 },
+      { name: 'Tata Motors', type: 'Stocks', value: 500000, annualPerformance: 30, ticker: 'TATAMOTORS.BSE', shares: 500 },
       { name: 'Government Bonds', type: 'Bonds', value: 350000, annualPerformance: 7 },
     ],
     epf: {

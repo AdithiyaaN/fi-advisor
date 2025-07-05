@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import {
   Card,
   CardContent,
@@ -8,22 +11,22 @@ import {
 import { FinancialData } from '@/lib/mcp-data';
 import { PageHeader } from './page-header';
 import { KpiCard } from './kpi-card';
-import {
-  Landmark,
-  Wallet,
-  BadgePercent,
-  Receipt,
-} from 'lucide-react';
+import { Landmark, Wallet, BadgePercent, Receipt, PieChart as PieChartIcon, BarChart3 as BarChartIcon, LineChart as LineChartIcon } from 'lucide-react';
 import { FinancialSummary } from './financial-summary';
 import { NetWorthChart } from './net-worth-chart';
 import { AssetLiabilityChart } from './asset-liability-chart';
 import { InvestmentPerformanceChart } from './investment-performance-chart';
+import { Tabs, TabsList, TabsTrigger } from './ui/tabs';
 
 type DashboardProps = {
   financialData: FinancialData;
 };
 
 export function Dashboard({ financialData }: DashboardProps) {
+  const [assetChartType, setAssetChartType] = useState<'pie' | 'bar' | 'line'>(
+    'pie'
+  );
+
   return (
     <div className="flex flex-1 flex-col gap-6 p-4 md:gap-8 md:p-8 lg:p-10">
       <PageHeader userName={financialData.user.name} />
@@ -67,12 +70,37 @@ export function Dashboard({ financialData }: DashboardProps) {
           </CardContent>
         </Card>
         <Card className="shadow-lg">
-          <CardHeader>
-            <CardTitle>Asset vs. Liability</CardTitle>
-            <CardDescription>A breakdown of your financial standing.</CardDescription>
+          <CardHeader className="flex flex-row items-start justify-between pb-2">
+            <div>
+              <CardTitle>Asset vs. Liability</CardTitle>
+              <CardDescription>
+                A breakdown of your financial standing.
+              </CardDescription>
+            </div>
+            <Tabs
+              value={assetChartType}
+              onValueChange={(v) =>
+                setAssetChartType(v as typeof assetChartType)
+              }
+            >
+              <TabsList className="h-8 gap-1">
+                <TabsTrigger value="pie" className="h-6 w-6 p-0">
+                  <PieChartIcon className="h-4 w-4" />
+                </TabsTrigger>
+                <TabsTrigger value="bar" className="h-6 w-6 p-0">
+                  <BarChartIcon className="h-4 w-4" />
+                </TabsTrigger>
+                <TabsTrigger value="line" className="h-6 w-6 p-0">
+                  <LineChartIcon className="h-4 w-4" />
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
           </CardHeader>
           <CardContent>
-            <AssetLiabilityChart data={financialData.summary} />
+            <AssetLiabilityChart
+              data={financialData.summary}
+              type={assetChartType}
+            />
           </CardContent>
         </Card>
       </div>
@@ -80,10 +108,14 @@ export function Dashboard({ financialData }: DashboardProps) {
         <Card className="shadow-lg xl:col-span-2">
           <CardHeader>
             <CardTitle>Investment Performance</CardTitle>
-            <CardDescription>Annual performance of your investments.</CardDescription>
+            <CardDescription>
+              Annual performance of your investments.
+            </CardDescription>
           </CardHeader>
           <CardContent className="pl-2">
-            <InvestmentPerformanceChart data={financialData.assets.investments} />
+            <InvestmentPerformanceChart
+              data={financialData.assets.investments}
+            />
           </CardContent>
         </Card>
         <Card className="shadow-lg xl:col-span-1">

@@ -29,9 +29,9 @@ export function Dashboard({ financialData }: DashboardProps) {
   );
 
   return (
-    <div className="flex flex-1 flex-col gap-6 p-4 md:gap-8 md:p-8 lg:p-10">
+    <div className="flex flex-1 flex-col gap-6 p-4 md:gap-8 md:p-8">
       <PageHeader userName={financialData.user.name} />
-      <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 md:gap-8 lg:grid-cols-4">
         <KpiCard
           title="Total Assets"
           value={financialData.summary.assets}
@@ -71,7 +71,7 @@ export function Dashboard({ financialData }: DashboardProps) {
           </CardContent>
         </Card>
         <Card className="shadow-lg">
-          <CardHeader className="flex flex-row items-start justify-between pb-2">
+          <CardHeader className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between pb-2">
             <div>
               <CardTitle>Asset vs. Liability</CardTitle>
               <CardDescription>
@@ -108,7 +108,7 @@ export function Dashboard({ financialData }: DashboardProps) {
       <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
         <Card className="shadow-lg xl:col-span-2">
           <Tabs defaultValue="investments">
-            <CardHeader className="flex flex-row items-center justify-between">
+            <CardHeader className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <CardTitle>Analysis</CardTitle>
                 <CardDescription>

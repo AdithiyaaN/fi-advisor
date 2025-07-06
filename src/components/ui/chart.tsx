@@ -138,15 +138,15 @@ const ChartTooltipContent = React.forwardRef<
         return null
       }
 
+      const [item] = payload
       if (labelFormatter) {
         return (
           <div className={cn("font-medium", labelClassName)}>
-            {labelFormatter(label, payload)}
+            {labelFormatter(item.payload[item.dataKey] ? item.payload.date : label, payload)}
           </div>
         )
       }
 
-      const [item] = payload
       const key = `${labelKey || item.dataKey || item.name || "value"}`
       const itemConfig = getPayloadConfigFromPayload(config, item, key)
       const value =
@@ -280,7 +280,7 @@ const ChartLegendContent = React.forwardRef<
       <div
         ref={ref}
         className={cn(
-          "flex items-center justify-center gap-4",
+          "flex flex-wrap items-center justify-center gap-x-4 gap-y-2",
           verticalAlign === "top" ? "pb-3" : "pt-3",
           className
         )}

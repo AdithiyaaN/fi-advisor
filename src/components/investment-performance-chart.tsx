@@ -2,6 +2,7 @@
 
 import { Bar, BarChart, Tooltip, XAxis, YAxis } from 'recharts';
 import { ChartContainer, ChartTooltipContent, type ChartConfig } from '@/components/ui/chart';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 type InvestmentPerformanceChartProps = {
   data: Array<{ name: string; annualPerformance: number }>;
@@ -15,9 +16,10 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function InvestmentPerformanceChart({ data }: InvestmentPerformanceChartProps) {
+  const isMobile = useIsMobile();
   return (
     <ChartContainer config={chartConfig} className="h-[300px] w-full">
-      <BarChart accessibilityLayer data={data}>
+      <BarChart accessibilityLayer data={data} margin={{ left: -10, right: 10, top: 10, bottom: 20 }}>
         <XAxis
           dataKey="name"
           tickFormatter={(value) => value.split(' ').slice(0, 2).join(' ')}
@@ -25,16 +27,16 @@ export function InvestmentPerformanceChart({ data }: InvestmentPerformanceChartP
           axisLine={false}
           angle={-45}
           textAnchor="end"
-          height={60}
+          height={isMobile ? 80 : 60}
           interval={0}
-          fontSize={12}
+          fontSize={isMobile ? 10 : 12}
         />
         <YAxis
           tickFormatter={(value) => `${value}%`}
           tickLine={false}
           axisLine={false}
-          width={30}
-          fontSize={12}
+          width={isMobile ? 35 : 40}
+          fontSize={isMobile ? 10 : 12}
         />
         <Tooltip
           cursor={{ fill: 'hsl(var(--muted))' }}

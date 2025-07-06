@@ -16,7 +16,8 @@ import { FinancialSummary } from './financial-summary';
 import { NetWorthChart } from './net-worth-chart';
 import { AssetLiabilityChart } from './asset-liability-chart';
 import { InvestmentPerformanceChart } from './investment-performance-chart';
-import { Tabs, TabsList, TabsTrigger } from './ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
+import { DebtBreakdownChart } from './debt-breakdown-chart';
 
 type DashboardProps = {
   financialData: FinancialData;
@@ -106,17 +107,32 @@ export function Dashboard({ financialData }: DashboardProps) {
       </div>
       <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
         <Card className="shadow-lg xl:col-span-2">
-          <CardHeader>
-            <CardTitle>Investment Performance</CardTitle>
-            <CardDescription>
-              Annual performance of your investments.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="pl-2">
-            <InvestmentPerformanceChart
-              data={financialData.assets.investments}
-            />
-          </CardContent>
+          <Tabs defaultValue="investments">
+            <CardHeader className="flex flex-row items-center justify-between">
+              <div>
+                <CardTitle>Analysis</CardTitle>
+                <CardDescription>
+                  Toggle between investment performance and debt breakdown.
+                </CardDescription>
+              </div>
+              <TabsList>
+                <TabsTrigger value="investments">Investments</TabsTrigger>
+                <TabsTrigger value="debt">Debt</TabsTrigger>
+              </TabsList>
+            </CardHeader>
+            <CardContent>
+              <TabsContent value="investments" className="m-0 p-0">
+                <div className="pl-2">
+                  <InvestmentPerformanceChart
+                    data={financialData.assets.investments}
+                  />
+                </div>
+              </TabsContent>
+              <TabsContent value="debt" className="m-0 p-0">
+                <DebtBreakdownChart data={financialData.liabilities} />
+              </TabsContent>
+            </CardContent>
+          </Tabs>
         </Card>
         <Card className="shadow-lg xl:col-span-1">
           <CardHeader>

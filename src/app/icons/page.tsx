@@ -1,7 +1,76 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Server, ShieldCheck, BrainCircuit, Fingerprint, Radar } from "lucide-react";
+import { 
+  Server, ShieldCheck, BrainCircuit, Fingerprint, Radar,
+  Sparkles, Network, MessageCircle, TrendingUp, AlertTriangle, FileOutput 
+} from "lucide-react";
 
 export default function IconsPage() {
+  const uspItems = [
+    {
+      icon: <ShieldCheck className="w-6 h-6 text-primary" />,
+      title: "First-Mover MCP",
+      description: "Unprecedented, secure access to all your financial data for a complete, accurate picture."
+    },
+    {
+      icon: <BrainCircuit className="w-6 h-6 text-primary" />,
+      title: "Google AI Power",
+      description: "Gemini's intelligence and Vertex AI's orchestration deliver unparalleled accuracy and scale."
+    },
+    {
+      icon: <Fingerprint className="w-6 h-6 text-primary" />,
+      title: "True User Control",
+      description: "Privacy-by-design with explicit consent ensures you always own and control your data."
+    },
+    {
+      icon: <Radar className="w-6 h-6 text-primary" />,
+      title: "Holistic & Proactive",
+      description: "Goes beyond budgeting to analyze investments, debt, goals, and detect anomalies."
+    }
+  ];
+
+  const keyFeatures = [
+    {
+        icon: <Sparkles className="w-6 h-6 text-primary" />,
+        title: "Personalized Financial Insights",
+        description: "Answers your specific financial questions using your real data."
+    },
+    {
+        icon: <Network className="w-6 h-6 text-primary" />,
+        title: "Comprehensive Data Access",
+        description: "Unifies assets, liabilities, net worth, etc., from 18+ sources via Fi MCP."
+    },
+    {
+        icon: <MessageCircle className="w-6 h-6 text-primary" />,
+        title: "Natural Language Interaction",
+        description: 'Talk to your finances like a human ("How much money will I have at 40?").'
+    },
+    {
+        icon: <BrainCircuit className="w-6 h-6 text-primary" />,
+        title: "Smart Analysis & Planning",
+        description: "Gemini powers trend analysis, scenario simulations, and goal planning."
+    },
+    {
+        icon: <TrendingUp className="w-6 h-6 text-primary" />,
+        title: "Debt & Investment Optimization",
+        description: "Guides strategies for loans and portfolios."
+    },
+    {
+        icon: <AlertTriangle className="w-6 h-6 text-primary" />,
+        title: "Anomaly Detection",
+        description: "Identifies unusual financial activity."
+    },
+    {
+        icon: <ShieldCheck className="w-6 h-6 text-primary" />,
+        title: "Secure & Private",
+        description: "Fi MCP ensures secure, consent-based data access with 2FA and encryption."
+    },
+    {
+        icon: <FileOutput className="w-6 h-6 text-primary" />,
+        title: "User Control",
+        description: "You own your insights; exportable and extensible."
+    }
+  ];
+
   return (
     <div className="flex flex-col flex-1">
       <main className="flex-1 p-4 md:p-8">
@@ -72,61 +141,44 @@ export default function IconsPage() {
         </div>
 
         <div className="grid max-w-5xl mx-auto gap-8 md:grid-cols-2">
-            <Card className="flex flex-col shadow-md">
-                <CardHeader className="flex-row items-center gap-4">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10">
-                        <ShieldCheck className="w-6 h-6 text-primary" />
-                    </div>
-                    <CardTitle className="text-xl">First-Mover MCP</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground">
-                        Unprecedented, secure access to all your financial data for a complete, accurate picture.
-                    </p>
-                </CardContent>
+          {uspItems.map((item, index) => (
+            <Card key={index} className="flex flex-col shadow-md">
+              <CardHeader className="flex-row items-center gap-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10">
+                  {item.icon}
+                </div>
+                <CardTitle className="text-xl">{item.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">{item.description}</p>
+              </CardContent>
             </Card>
+          ))}
+        </div>
 
-            <Card className="flex flex-col shadow-md">
-                <CardHeader className="flex-row items-center gap-4">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10">
-                        <BrainCircuit className="w-6 h-6 text-primary" />
-                    </div>
-                    <CardTitle className="text-xl">Google AI Power</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground">
-                        Gemini's intelligence and Vertex AI's orchestration deliver unparalleled accuracy and scale.
-                    </p>
-                </CardContent>
-            </Card>
+        <div className="pt-16 mt-16 mb-8 text-center border-t">
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Key Features</h2>
+            <p className="mt-2 text-lg text-muted-foreground">
+                A comprehensive suite of tools for intelligent financial management.
+            </p>
+        </div>
 
-            <Card className="flex flex-col shadow-md">
-                <CardHeader className="flex-row items-center gap-4">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10">
-                        <Fingerprint className="w-6 h-6 text-primary" />
-                    </div>
-                    <CardTitle className="text-xl">True User Control</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground">
-                        Privacy-by-design with explicit consent ensures you always own and control your data.
-                    </p>
-                </CardContent>
-            </Card>
-
-            <Card className="flex flex-col shadow-md">
-                <CardHeader className="flex-row items-center gap-4">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10">
-                        <Radar className="w-6 h-6 text-primary" />
-                    </div>
-                    <CardTitle className="text-xl">Holistic & Proactive</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-muted-foreground">
-                        Goes beyond budgeting to analyze investments, debt, goals, and detect anomalies.
-                    </p>
-                </CardContent>
-            </Card>
+        <div className="grid max-w-6xl gap-8 mx-auto md:grid-cols-2 lg:grid-cols-4">
+            {keyFeatures.map((feature, index) => (
+                <Card key={index} className="flex flex-col shadow-md">
+                    <CardHeader className="flex-row items-start gap-4">
+                        <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 shrink-0">
+                            {feature.icon}
+                        </div>
+                        <CardTitle className="text-lg leading-snug">{feature.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-0">
+                        <p className="text-muted-foreground">
+                            {feature.description}
+                        </p>
+                    </CardContent>
+                </Card>
+            ))}
         </div>
       </main>
     </div>

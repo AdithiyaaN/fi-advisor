@@ -1,9 +1,10 @@
+import React from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { 
   Server, ShieldCheck, BrainCircuit, Fingerprint, Radar,
   Sparkles, Network, MessageCircle, TrendingUp, AlertTriangle, FileOutput, Database,
-  User, Lightbulb, Building, ArrowDown, ArrowUp
+  User, Lightbulb, Building, ArrowDown, ArrowUp, ChevronRight
 } from "lucide-react";
 
 export default function IconsPage() {
@@ -112,6 +113,15 @@ export default function IconsPage() {
     }
   ];
 
+  const finalFlowStep = {
+    isFinal: true,
+    icon: <ShieldCheck className="w-6 h-6 text-emerald-500" />,
+    actor: "Full Data Control & Privacy",
+    action: "Your data is yours. Secure, private, and under your control at all times."
+  };
+
+  const allFlowSteps = [...flowchartSteps, finalFlowStep];
+
   return (
     <div className="flex flex-col flex-1">
       <main className="flex-1 p-4 md:p-8">
@@ -215,7 +225,7 @@ export default function IconsPage() {
           </CardContent>
         </Card>
 
-        <Card className="max-w-4xl mx-auto mt-16 shadow-lg">
+        <Card className="max-w-6xl mx-auto mt-16 shadow-lg">
           <CardHeader className="text-center">
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">How It Works: The Data Flow</h2>
             <CardDescription className="mt-2 text-lg">
@@ -223,35 +233,27 @@ export default function IconsPage() {
             </CardDescription>
           </CardHeader>
           <CardContent className="pt-8">
-            <div className="relative">
-              {/* Central connecting line */}
-              <div className="absolute left-6 top-5 bottom-8 w-0.5 bg-border/70" aria-hidden="true"></div>
+            <div className="flex items-center justify-center py-4 -mx-6 overflow-x-auto px-6">
+                <div className="inline-flex items-start gap-4 sm:gap-6">
+                    {allFlowSteps.map((item, index) => (
+                        <React.Fragment key={item.step || 'final'}>
+                            <div className="flex flex-col items-center w-48 text-center shrink-0">
+                                <div className={`flex items-center justify-center w-16 h-16 rounded-full ring-8 ring-background mb-4 ${item.isFinal ? 'bg-emerald-500/10' : 'bg-primary/10'}`}>
+                                    {item.isFinal ? item.icon : <div className="text-primary">{item.icon}</div>}
+                                </div>
+                                {!item.isFinal && <p className="text-sm font-semibold text-primary">STEP {item.step}</p>}
+                                <h3 className="mt-1 font-semibold text-md">{item.actor}</h3>
+                                <p className="mt-1 text-sm text-muted-foreground">{item.action}</p>
+                            </div>
 
-              <div className="space-y-12">
-                {flowchartSteps.map((item) => (
-                  <div key={item.step} className="relative flex items-start gap-6">
-                    <div className="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 ring-8 ring-background">
-                      <div className="text-primary">{item.icon}</div>
-                    </div>
-                    <div className="pt-2">
-                      <p className="text-sm font-semibold text-primary">STEP {item.step}</p>
-                      <h3 className="text-lg font-semibold">{item.actor}</h3>
-                      <p className="mt-1 text-muted-foreground">{item.action}</p>
-                    </div>
-                  </div>
-                ))}
-                
-                {/* Final privacy step */}
-                <div className="relative flex items-start gap-6">
-                   <div className="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/10 ring-8 ring-background">
-                      <ShieldCheck className="w-6 h-6 text-emerald-500" />
-                    </div>
-                    <div className="pt-2">
-                      <h3 className="text-lg font-semibold">Full Data Control & Privacy</h3>
-                      <p className="mt-1 text-muted-foreground">Your data is yours. Secure, private, and under your control at all times.</p>
-                    </div>
+                            {index < allFlowSteps.length - 1 && (
+                                <div className="self-center flex-shrink-0 mt-[-3rem]">
+                                    <ChevronRight className="w-10 h-10 text-border" />
+                                </div>
+                            )}
+                        </React.Fragment>
+                    ))}
                 </div>
-              </div>
             </div>
           </CardContent>
         </Card>

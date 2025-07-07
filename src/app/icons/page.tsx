@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import { 
   Server, ShieldCheck, BrainCircuit, Fingerprint, Radar,
   Sparkles, Network, MessageCircle, TrendingUp, AlertTriangle, FileOutput, Database,
-  User, Lightbulb, Building, ArrowDown, ArrowRight
+  User, Lightbulb, Building, ArrowDown, ArrowRight, Cloud, Layers3
 } from "lucide-react";
 
 const uspItems = [
@@ -117,6 +117,42 @@ const finalFlowStep = {
   actor: "Full Data Control & Privacy",
   action: "Your data is yours. Secure, private, and under your control at all times."
 };
+
+const technologiesUsed = [
+  {
+    icon: <Server className="w-8 h-8 text-primary" />,
+    title: "Fi Money's MCP Server",
+    description: "Secure, real-time access to your complete financial data across 18+ sources.",
+  },
+  {
+    icon: <BrainCircuit className="w-8 h-8 text-primary" />,
+    title: "Google AI Stack",
+    description: "The core intelligence layer powering personalized financial insights and orchestration.",
+    subItems: [
+      {
+        icon: <Sparkles className="w-5 h-5 text-primary" />,
+        name: "Gemini",
+        details: "Core AI for natural language understanding and personalized financial insights.",
+      },
+      {
+        icon: <Network className="w-5 h-5 text-primary" />,
+        name: "Vertex AI Agent Builder",
+        details: "Orchestrates the AI agents and handles data grounding via MCP.",
+      },
+      {
+        icon: <Cloud className="w-5 h-5 text-primary" />,
+        name: "Google Cloud Platform (GCP)",
+        details: "Scalable, secure infrastructure.",
+      },
+    ],
+  },
+  {
+    icon: <Layers3 className="w-8 h-8 text-primary" />,
+    title: "Flexible UI",
+    description: "Engage via voice, chat, mobile, or even API-driven experiences for ultimate flexibility.",
+  },
+];
+
 
 const FlowchartNode = ({ step, icon, actor, action }: (typeof flowchartSteps)[0]) => (
   <div className="flex flex-col items-center text-center w-52 shrink-0">
@@ -314,6 +350,48 @@ export default function IconsPage() {
                 <p className="text-muted-foreground">
                   {feature.description}
                 </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="pt-16 mt-16 mb-8 text-center border-t">
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Technologies Used</h2>
+          <p className="mt-2 text-lg text-muted-foreground">
+            The powerful, secure, and scalable technologies behind Fi Advisor.
+          </p>
+        </div>
+
+        <div className="grid max-w-6xl gap-8 mx-auto md:grid-cols-1 lg:grid-cols-3">
+          {technologiesUsed.map((tech, index) => (
+            <Card key={index} className="flex flex-col shadow-md">
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center justify-center w-16 h-16 rounded-lg bg-primary/10 shrink-0">
+                    {tech.icon}
+                  </div>
+                  <CardTitle className="text-xl leading-snug">{tech.title}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="flex-1">
+                <p className="text-muted-foreground">
+                  {tech.description}
+                </p>
+                {tech.subItems && (
+                  <div className="mt-4 space-y-3">
+                    {tech.subItems.map((sub, subIndex) => (
+                      <div key={subIndex} className="flex items-start gap-3">
+                        <div className="flex items-center justify-center w-8 h-8 mt-1 rounded-md bg-primary/5 shrink-0">
+                          {sub.icon}
+                        </div>
+                        <div>
+                          <p className="font-semibold text-foreground">{sub.name}</p>
+                          <p className="text-sm text-muted-foreground">{sub.details}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </CardContent>
             </Card>
           ))}

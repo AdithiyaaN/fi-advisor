@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { 
   Server, ShieldCheck, BrainCircuit, Fingerprint, Radar,
@@ -153,28 +153,27 @@ export default function IconsPage() {
           </Card>
         </div>
 
-        <div className="mt-16 mb-8 text-center">
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Our Unique Selling Proposition</h2>
-          <p className="mt-2 text-lg text-muted-foreground">
-            The core pillars that make Fi Advisor a truly intelligent financial partner.
-          </p>
-        </div>
-
-        <div className="grid max-w-5xl mx-auto gap-8 md:grid-cols-2">
-          {uspItems.map((item, index) => (
-            <Card key={index} className="flex flex-col shadow-md">
-              <CardHeader className="flex-row items-center gap-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10">
+        <Card className="max-w-5xl mx-auto mt-16 shadow-lg">
+          <CardHeader className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Our Unique Selling Proposition</h2>
+            <CardDescription className="mt-2 text-lg">
+              The core pillars that make Fi Advisor a truly intelligent financial partner.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-8 pt-6 md:grid-cols-2">
+            {uspItems.map((item, index) => (
+              <div key={index} className="flex items-start gap-4">
+                <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10">
                   {item.icon}
                 </div>
-                <CardTitle className="text-xl">{item.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{item.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                <div>
+                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                  <p className="mt-1 text-muted-foreground">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
 
         <div className="pt-16 mt-16 mb-8 text-center border-t">
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Key Features</h2>

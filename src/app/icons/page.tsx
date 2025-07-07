@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Server, ShieldCheck } from "lucide-react";
+import { Server, ShieldCheck, BrainCircuit, Fingerprint, Radar } from "lucide-react";
 
 export default function IconsPage() {
   return (
@@ -62,6 +62,71 @@ export default function IconsPage() {
               </p>
             </CardContent>
           </Card>
+        </div>
+
+        <div className="mt-16 mb-8 text-center">
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Our Unique Selling Proposition</h2>
+          <p className="mt-2 text-lg text-muted-foreground">
+            The core pillars that make Fi Advisor a truly intelligent financial partner.
+          </p>
+        </div>
+
+        <div className="grid max-w-5xl mx-auto gap-8 md:grid-cols-2">
+            <Card className="flex flex-col shadow-md">
+                <CardHeader className="flex-row items-center gap-4">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10">
+                        <ShieldCheck className="w-6 h-6 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl">First-Mover MCP</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground">
+                        Unprecedented, secure access to all your financial data for a complete, accurate picture.
+                    </p>
+                </CardContent>
+            </Card>
+
+            <Card className="flex flex-col shadow-md">
+                <CardHeader className="flex-row items-center gap-4">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10">
+                        <BrainCircuit className="w-6 h-6 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl">Google AI Power</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground">
+                        Gemini's intelligence and Vertex AI's orchestration deliver unparalleled accuracy and scale.
+                    </p>
+                </CardContent>
+            </Card>
+
+            <Card className="flex flex-col shadow-md">
+                <CardHeader className="flex-row items-center gap-4">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10">
+                        <Fingerprint className="w-6 h-6 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl">True User Control</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground">
+                        Privacy-by-design with explicit consent ensures you always own and control your data.
+                    </p>
+                </CardContent>
+            </Card>
+
+            <Card className="flex flex-col shadow-md">
+                <CardHeader className="flex-row items-center gap-4">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10">
+                        <Radar className="w-6 h-6 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl">Holistic & Proactive</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground">
+                        Goes beyond budgeting to analyze investments, debt, goals, and detect anomalies.
+                    </p>
+                </CardContent>
+            </Card>
         </div>
       </main>
     </div>

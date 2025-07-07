@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import { 
   Server, ShieldCheck, BrainCircuit, Fingerprint, Radar,
   Sparkles, Network, MessageCircle, TrendingUp, AlertTriangle, FileOutput, Database,
-  User, Lightbulb, Building, ArrowDown, ArrowUp, ChevronRight
+  User, Lightbulb, Building, ArrowDown
 } from "lucide-react";
 
 export default function IconsPage() {
@@ -77,50 +77,47 @@ export default function IconsPage() {
   const flowchartSteps = [
     {
       step: "1",
-      icon: <User className="w-6 h-6" />,
+      icon: <User className="w-10 h-10" />,
       actor: "You",
       action: "Ask a financial question in natural language."
     },
     {
       step: "2",
-      icon: <BrainCircuit className="w-6 h-6" />,
+      icon: <BrainCircuit className="w-10 h-10" />,
       actor: "AI Agent (Vertex AI + Gemini)",
       action: "Initiates a secure data request via API."
     },
     {
       step: "3",
-      icon: <Server className="w-6 h-6" />,
+      icon: <Server className="w-10 h-10" />,
       actor: "Fi Money MCP Server",
       action: "Securely aggregates and structures data from 18+ sources (Banks, MFs, EPF, etc.)."
     },
     {
       step: "4",
-      icon: <Building className="w-6 h-6" />,
+      icon: <Building className="w-10 h-10" />,
       actor: "External Financial Institutions",
       action: "Return structured financial data (JSON) back to the MCP Server."
     },
     {
       step: "5",
-      icon: <Sparkles className="w-6 h-6" />,
+      icon: <Sparkles className="w-10 h-10" />,
       actor: "AI Agent (Gemini for Analysis)",
       action: "Generates personalized insights, scenarios, and actions from the unified data."
     },
     {
       step: "6",
-      icon: <Lightbulb className="w-6 h-6" />,
+      icon: <Lightbulb className="w-10 h-10" />,
       actor: "You",
       action: "Receive actionable financial advice, tailored to your unique situation."
     }
   ];
 
   const finalFlowStep = {
-    isFinal: true,
-    icon: <ShieldCheck className="w-6 h-6 text-emerald-500" />,
+    icon: <ShieldCheck className="w-10 h-10 text-emerald-500" />,
     actor: "Full Data Control & Privacy",
     action: "Your data is yours. Secure, private, and under your control at all times."
   };
-
-  const allFlowSteps = [...flowchartSteps, finalFlowStep];
 
   return (
     <div className="flex flex-col flex-1">
@@ -233,26 +230,29 @@ export default function IconsPage() {
             </CardDescription>
           </CardHeader>
           <CardContent className="pt-8">
-            <div className="flex items-center justify-center py-4 -mx-6 overflow-x-auto px-6">
-                <div className="inline-flex items-start gap-4 sm:gap-6">
-                    {allFlowSteps.map((item, index) => (
-                        <React.Fragment key={item.step || 'final'}>
-                            <div className="flex flex-col items-center w-48 text-center shrink-0">
-                                <div className={`flex items-center justify-center w-16 h-16 rounded-full ring-8 ring-background mb-4 ${item.isFinal ? 'bg-emerald-500/10' : 'bg-primary/10'}`}>
-                                    {item.isFinal ? item.icon : <div className="text-primary">{item.icon}</div>}
-                                </div>
-                                {!item.isFinal && <p className="text-sm font-semibold text-primary">STEP {item.step}</p>}
-                                <h3 className="mt-1 font-semibold text-md">{item.actor}</h3>
-                                <p className="mt-1 text-sm text-muted-foreground">{item.action}</p>
+            <div className="flex flex-col items-center max-w-2xl gap-8 mx-auto">
+                {flowchartSteps.map((item) => (
+                    <React.Fragment key={item.step}>
+                        <div className="flex flex-col items-center w-full text-center">
+                            <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-primary/10 ring-8 ring-background">
+                                <div className="text-primary">{item.icon}</div>
                             </div>
+                            <p className="text-sm font-semibold text-primary">STEP {item.step}</p>
+                            <h3 className="mt-1 text-xl font-semibold">{item.actor}</h3>
+                            <p className="mt-2 text-muted-foreground">{item.action}</p>
+                        </div>
+                        <ArrowDown className="w-10 h-10 text-border" />
+                    </React.Fragment>
+                ))}
 
-                            {index < allFlowSteps.length - 1 && (
-                                <div className="self-center flex-shrink-0 mt-[-3rem]">
-                                    <ChevronRight className="w-10 h-10 text-border" />
-                                </div>
-                            )}
-                        </React.Fragment>
-                    ))}
+                <div className="w-full p-6 text-center border-2 rounded-lg shadow-inner bg-card border-emerald-500/50">
+                    <div className="flex flex-col items-center">
+                        <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-emerald-500/10 ring-8 ring-background">
+                            {finalFlowStep.icon}
+                        </div>
+                        <h3 className="mt-1 text-xl font-semibold">{finalFlowStep.actor}</h3>
+                        <p className="mt-2 text-muted-foreground">{finalFlowStep.action}</p>
+                    </div>
                 </div>
             </div>
           </CardContent>

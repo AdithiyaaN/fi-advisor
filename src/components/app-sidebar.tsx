@@ -12,7 +12,7 @@ import {
   SidebarMenuButton,
 } from '@/components/ui/sidebar';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { LayoutDashboard, Settings, Wallet } from 'lucide-react';
+import { LayoutDashboard, Settings, Wallet, Info } from 'lucide-react';
 import type { FinancialData } from '@/lib/mcp-data';
 
 type AppSidebarProps = {
@@ -78,6 +78,14 @@ export function AppSidebar({ user }: AppSidebarProps) {
               <Link href="/settings">
                 <Settings />
                 <span>Settings</span>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild tooltip="Why We're Different" isActive={pathname === '/icons'}>
+              <Link href="/icons">
+                <Info />
+                <span>Why We're Different</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

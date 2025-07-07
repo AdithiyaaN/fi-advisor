@@ -2,7 +2,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Separator } from "@/components/ui/separator";
 import { 
   Server, ShieldCheck, BrainCircuit, Fingerprint, Radar,
-  Sparkles, Network, MessageCircle, TrendingUp, AlertTriangle, FileOutput, Database
+  Sparkles, Network, MessageCircle, TrendingUp, AlertTriangle, FileOutput, Database,
+  User, Lightbulb, Building, ArrowDown, ArrowUp
 } from "lucide-react";
 
 export default function IconsPage() {
@@ -69,6 +70,45 @@ export default function IconsPage() {
         icon: <FileOutput className="w-6 h-6 text-primary" />,
         title: "User Control",
         description: "You own your insights; exportable and extensible."
+    }
+  ];
+
+  const flowchartSteps = [
+    {
+      step: "1",
+      icon: <User className="w-6 h-6" />,
+      actor: "You",
+      action: "Ask a financial question in natural language."
+    },
+    {
+      step: "2",
+      icon: <BrainCircuit className="w-6 h-6" />,
+      actor: "AI Agent (Vertex AI + Gemini)",
+      action: "Initiates a secure data request via API."
+    },
+    {
+      step: "3",
+      icon: <Server className="w-6 h-6" />,
+      actor: "Fi Money MCP Server",
+      action: "Securely aggregates and structures data from 18+ sources (Banks, MFs, EPF, etc.)."
+    },
+    {
+      step: "4",
+      icon: <Building className="w-6 h-6" />,
+      actor: "External Financial Institutions",
+      action: "Return structured financial data (JSON) back to the MCP Server."
+    },
+    {
+      step: "5",
+      icon: <Sparkles className="w-6 h-6" />,
+      actor: "AI Agent (Gemini for Analysis)",
+      action: "Generates personalized insights, scenarios, and actions from the unified data."
+    },
+    {
+      step: "6",
+      icon: <Lightbulb className="w-6 h-6" />,
+      actor: "You",
+      action: "Receive actionable financial advice, tailored to your unique situation."
     }
   ];
 
@@ -172,6 +212,47 @@ export default function IconsPage() {
                 </div>
               </div>
             ))}
+          </CardContent>
+        </Card>
+
+        <Card className="max-w-4xl mx-auto mt-16 shadow-lg">
+          <CardHeader className="text-center">
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">How It Works: The Data Flow</h2>
+            <CardDescription className="mt-2 text-lg">
+              A step-by-step look at how we turn your questions into answers.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="pt-8">
+            <div className="relative">
+              {/* Central connecting line */}
+              <div className="absolute left-6 top-5 bottom-8 w-0.5 bg-border/70" aria-hidden="true"></div>
+
+              <div className="space-y-12">
+                {flowchartSteps.map((item) => (
+                  <div key={item.step} className="relative flex items-start gap-6">
+                    <div className="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 ring-8 ring-background">
+                      <div className="text-primary">{item.icon}</div>
+                    </div>
+                    <div className="pt-2">
+                      <p className="text-sm font-semibold text-primary">STEP {item.step}</p>
+                      <h3 className="text-lg font-semibold">{item.actor}</h3>
+                      <p className="mt-1 text-muted-foreground">{item.action}</p>
+                    </div>
+                  </div>
+                ))}
+                
+                {/* Final privacy step */}
+                <div className="relative flex items-start gap-6">
+                   <div className="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/10 ring-8 ring-background">
+                      <ShieldCheck className="w-6 h-6 text-emerald-500" />
+                    </div>
+                    <div className="pt-2">
+                      <h3 className="text-lg font-semibold">Full Data Control & Privacy</h3>
+                      <p className="mt-1 text-muted-foreground">Your data is yours. Secure, private, and under your control at all times.</p>
+                    </div>
+                </div>
+              </div>
+            </div>
           </CardContent>
         </Card>
 

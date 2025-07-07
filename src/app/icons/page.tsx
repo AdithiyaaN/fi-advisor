@@ -1,7 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { 
   Server, ShieldCheck, BrainCircuit, Fingerprint, Radar,
-  Sparkles, Network, MessageCircle, TrendingUp, AlertTriangle, FileOutput 
+  Sparkles, Network, MessageCircle, TrendingUp, AlertTriangle, FileOutput, Database
 } from "lucide-react";
 
 export default function IconsPage() {
@@ -77,7 +78,7 @@ export default function IconsPage() {
         <div className="mb-8 text-center">
           <h1 className="text-3xl font-bold tracking-tight md:text-4xl">Why We&apos;re Different</h1>
           <p className="mt-2 text-lg text-muted-foreground">
-            Understanding the leap from current AI limitations to true financial intelligence.
+            From generic advice to actionable intelligence.
           </p>
         </div>
 
@@ -107,28 +108,47 @@ export default function IconsPage() {
                       <path d="m9.5 17.5 5-5" />
                   </svg>
               </div>
-              <CardTitle className="text-2xl">AI Fails You</CardTitle>
+              <CardTitle className="text-2xl">The Problem</CardTitle>
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-muted-foreground">
-                Current AI can&apos;t access your private, scattered financial data. It sees an incomplete picture, leading to generic advice that doesn&apos;t fit your unique life.
+                AI lacks your real, structured financial data, leading to generic advice that doesn&apos;t fit your life.
               </p>
             </CardContent>
           </Card>
 
-          {/* Card 2: The Solution */}
+          {/* Card 2: The Solution -> Result */}
           <Card className="flex flex-col shadow-lg border-primary/50 ring-2 ring-primary/10">
             <CardHeader className="items-center text-center">
                 <div className="relative flex items-center justify-center w-24 h-24 mb-4 rounded-full bg-primary/10">
                     <Server className="w-12 h-12 text-primary" />
-                    <ShieldCheck className="absolute p-1 bottom-1 right-1 h-8 w-8 fill-background bg-primary/10 rounded-full text-primary" />
+                    <Sparkles className="absolute p-1 bottom-1 right-1 h-8 w-8 fill-background bg-primary/10 rounded-full text-primary" />
                 </div>
-              <CardTitle className="text-2xl">The Breakthrough</CardTitle>
+              <CardTitle className="text-2xl">Our Solution → The Result</CardTitle>
             </CardHeader>
-            <CardContent className="text-center">
-              <p className="text-muted-foreground">
-                Fi Money&apos;s MCP Server – the first consumer-facing MCP – provides secure, real-time access to your <span className="font-semibold text-foreground">entire</span> financial footprint.
-              </p>
+            <CardContent className="px-4 space-y-4 text-left sm:px-6">
+                <div>
+                    <h3 className="font-semibold text-foreground flex items-center gap-2">
+                        <Database className="w-5 h-5 text-primary" />
+                        <span>Fi MCP: The Data Foundation</span>
+                    </h3>
+                    <p className="mt-1 text-sm text-muted-foreground pl-7">Securely unifies all your financial accounts and history.</p>
+                </div>
+                <div>
+                    <h3 className="font-semibold text-foreground flex items-center gap-2">
+                        <BrainCircuit className="w-5 h-5 text-primary" />
+                        <span>Google AI: The Intelligence</span>
+                    </h3>
+                    <p className="mt-1 text-sm text-muted-foreground pl-7">Analyzes your complete data to find opportunities.</p>
+                </div>
+                <Separator />
+                <div>
+                    <h3 className="font-semibold text-foreground flex items-center gap-2">
+                        <Sparkles className="w-5 h-5 text-emerald-500" />
+                        <span>Result: Actionable Insights</span>
+                    </h3>
+                    <p className="mt-1 text-sm text-muted-foreground pl-7">Receive deeply personalized advice to make smarter decisions.</p>
+                </div>
             </CardContent>
           </Card>
         </div>

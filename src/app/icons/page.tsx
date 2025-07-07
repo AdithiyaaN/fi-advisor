@@ -4,121 +4,132 @@ import { Separator } from "@/components/ui/separator";
 import { 
   Server, ShieldCheck, BrainCircuit, Fingerprint, Radar,
   Sparkles, Network, MessageCircle, TrendingUp, AlertTriangle, FileOutput, Database,
-  User, Lightbulb, Building, ArrowDown
+  User, Lightbulb, Building, ArrowDown, ArrowRight
 } from "lucide-react";
 
-export default function IconsPage() {
-  const uspItems = [
-    {
-      icon: <ShieldCheck className="w-6 h-6 text-primary" />,
-      title: "First-Mover MCP",
-      description: "Unprecedented, secure access to all your financial data for a complete, accurate picture."
-    },
-    {
+const uspItems = [
+  {
+    icon: <ShieldCheck className="w-6 h-6 text-primary" />,
+    title: "First-Mover MCP",
+    description: "Unprecedented, secure access to all your financial data for a complete, accurate picture."
+  },
+  {
+    icon: <BrainCircuit className="w-6 h-6 text-primary" />,
+    title: "Google AI Power",
+    description: "Gemini's intelligence and Vertex AI's orchestration deliver unparalleled accuracy and scale."
+  },
+  {
+    icon: <Fingerprint className="w-6 h-6 text-primary" />,
+    title: "True User Control",
+    description: "Privacy-by-design with explicit consent ensures you always own and control your data."
+  },
+  {
+    icon: <Radar className="w-6 h-6 text-primary" />,
+    title: "Holistic & Proactive",
+    description: "Goes beyond budgeting to analyze investments, debt, goals, and detect anomalies."
+  }
+];
+
+const keyFeatures = [
+  {
+      icon: <Sparkles className="w-6 h-6 text-primary" />,
+      title: "Personalized Financial Insights",
+      description: "Answers your specific financial questions using your real data."
+  },
+  {
+      icon: <Network className="w-6 h-6 text-primary" />,
+      title: "Comprehensive Data Access",
+      description: "Unifies assets, liabilities, net worth, etc., from 18+ sources via Fi MCP."
+  },
+  {
+      icon: <MessageCircle className="w-6 h-6 text-primary" />,
+      title: "Natural Language Interaction",
+      description: 'Talk to your finances like a human ("How much money will I have at 40?").'
+  },
+  {
       icon: <BrainCircuit className="w-6 h-6 text-primary" />,
-      title: "Google AI Power",
-      description: "Gemini's intelligence and Vertex AI's orchestration deliver unparalleled accuracy and scale."
-    },
-    {
-      icon: <Fingerprint className="w-6 h-6 text-primary" />,
-      title: "True User Control",
-      description: "Privacy-by-design with explicit consent ensures you always own and control your data."
-    },
-    {
-      icon: <Radar className="w-6 h-6 text-primary" />,
-      title: "Holistic & Proactive",
-      description: "Goes beyond budgeting to analyze investments, debt, goals, and detect anomalies."
-    }
-  ];
+      title: "Smart Analysis & Planning",
+      description: "Gemini powers trend analysis, scenario simulations, and goal planning."
+  },
+  {
+      icon: <TrendingUp className="w-6 h-6 text-primary" />,
+      title: "Debt & Investment Optimization",
+      description: "Guides strategies for loans and portfolios."
+  },
+  {
+      icon: <AlertTriangle className="w-6 h-6 text-primary" />,
+      title: "Anomaly Detection",
+      description: "Identifies unusual financial activity."
+  },
+  {
+      icon: <ShieldCheck className="w-6 h-6 text-primary" />,
+      title: "Secure & Private",
+      description: "Fi MCP ensures secure, consent-based data access with 2FA and encryption."
+  },
+  {
+      icon: <FileOutput className="w-6 h-6 text-primary" />,
+      title: "User Control",
+      description: "You own your insights; exportable and extensible."
+  }
+];
 
-  const keyFeatures = [
-    {
-        icon: <Sparkles className="w-6 h-6 text-primary" />,
-        title: "Personalized Financial Insights",
-        description: "Answers your specific financial questions using your real data."
-    },
-    {
-        icon: <Network className="w-6 h-6 text-primary" />,
-        title: "Comprehensive Data Access",
-        description: "Unifies assets, liabilities, net worth, etc., from 18+ sources via Fi MCP."
-    },
-    {
-        icon: <MessageCircle className="w-6 h-6 text-primary" />,
-        title: "Natural Language Interaction",
-        description: 'Talk to your finances like a human ("How much money will I have at 40?").'
-    },
-    {
-        icon: <BrainCircuit className="w-6 h-6 text-primary" />,
-        title: "Smart Analysis & Planning",
-        description: "Gemini powers trend analysis, scenario simulations, and goal planning."
-    },
-    {
-        icon: <TrendingUp className="w-6 h-6 text-primary" />,
-        title: "Debt & Investment Optimization",
-        description: "Guides strategies for loans and portfolios."
-    },
-    {
-        icon: <AlertTriangle className="w-6 h-6 text-primary" />,
-        title: "Anomaly Detection",
-        description: "Identifies unusual financial activity."
-    },
-    {
-        icon: <ShieldCheck className="w-6 h-6 text-primary" />,
-        title: "Secure & Private",
-        description: "Fi MCP ensures secure, consent-based data access with 2FA and encryption."
-    },
-    {
-        icon: <FileOutput className="w-6 h-6 text-primary" />,
-        title: "User Control",
-        description: "You own your insights; exportable and extensible."
-    }
-  ];
+const flowchartSteps = [
+  {
+    step: "1",
+    icon: <User className="w-10 h-10" />,
+    actor: "You",
+    action: "Ask a financial question in natural language."
+  },
+  {
+    step: "2",
+    icon: <BrainCircuit className="w-10 h-10" />,
+    actor: "AI Agent (Vertex AI + Gemini)",
+    action: "Initiates a secure data request via API."
+  },
+  {
+    step: "3",
+    icon: <Server className="w-10 h-10" />,
+    actor: "Fi Money MCP Server",
+    action: "Securely aggregates and structures data from 18+ sources."
+  },
+  {
+    step: "4",
+    icon: <Building className="w-10 h-10" />,
+    actor: "Financial Institutions",
+    action: "Return structured financial data (JSON) back to the MCP Server."
+  },
+  {
+    step: "5",
+    icon: <Sparkles className="w-10 h-10" />,
+    actor: "AI Agent (Gemini)",
+    action: "Generates personalized insights and actions from the data."
+  },
+  {
+    step: "6",
+    icon: <Lightbulb className="w-10 h-10" />,
+    actor: "You",
+    action: "Receive actionable financial advice, tailored to you."
+  }
+];
 
-  const flowchartSteps = [
-    {
-      step: "1",
-      icon: <User className="w-10 h-10" />,
-      actor: "You",
-      action: "Ask a financial question in natural language."
-    },
-    {
-      step: "2",
-      icon: <BrainCircuit className="w-10 h-10" />,
-      actor: "AI Agent (Vertex AI + Gemini)",
-      action: "Initiates a secure data request via API."
-    },
-    {
-      step: "3",
-      icon: <Server className="w-10 h-10" />,
-      actor: "Fi Money MCP Server",
-      action: "Securely aggregates and structures data from 18+ sources (Banks, MFs, EPF, etc.)."
-    },
-    {
-      step: "4",
-      icon: <Building className="w-10 h-10" />,
-      actor: "External Financial Institutions",
-      action: "Return structured financial data (JSON) back to the MCP Server."
-    },
-    {
-      step: "5",
-      icon: <Sparkles className="w-10 h-10" />,
-      actor: "AI Agent (Gemini for Analysis)",
-      action: "Generates personalized insights, scenarios, and actions from the unified data."
-    },
-    {
-      step: "6",
-      icon: <Lightbulb className="w-10 h-10" />,
-      actor: "You",
-      action: "Receive actionable financial advice, tailored to your unique situation."
-    }
-  ];
+const finalFlowStep = {
+  icon: <ShieldCheck className="w-10 h-10 text-emerald-500" />,
+  actor: "Full Data Control & Privacy",
+  action: "Your data is yours. Secure, private, and under your control at all times."
+};
 
-  const finalFlowStep = {
-    icon: <ShieldCheck className="w-10 h-10 text-emerald-500" />,
-    actor: "Full Data Control & Privacy",
-    action: "Your data is yours. Secure, private, and under your control at all times."
-  };
+const FlowchartNode = ({ step, icon, actor, action }: (typeof flowchartSteps)[0]) => (
+  <div className="flex flex-col items-center text-center w-52 shrink-0">
+    <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-primary/10 ring-8 ring-background">
+      <div className="text-primary">{icon}</div>
+    </div>
+    <p className="text-sm font-semibold text-primary">STEP {step}</p>
+    <h3 className="mt-1 text-xl font-semibold">{actor}</h3>
+    <p className="mt-2 text-muted-foreground">{action}</p>
+  </div>
+);
 
+export default function IconsPage() {
   return (
     <div className="flex flex-col flex-1">
       <main className="flex-1 p-4 md:p-8">
@@ -229,58 +240,83 @@ export default function IconsPage() {
               A step-by-step look at how we turn your questions into answers.
             </CardDescription>
           </CardHeader>
-          <CardContent className="pt-8">
-            <div className="flex flex-col items-center max-w-2xl gap-8 mx-auto">
-                {flowchartSteps.map((item) => (
-                    <React.Fragment key={item.step}>
-                        <div className="flex flex-col items-center w-full text-center">
-                            <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-primary/10 ring-8 ring-background">
-                                <div className="text-primary">{item.icon}</div>
-                            </div>
-                            <p className="text-sm font-semibold text-primary">STEP {item.step}</p>
-                            <h3 className="mt-1 text-xl font-semibold">{item.actor}</h3>
-                            <p className="mt-2 text-muted-foreground">{item.action}</p>
-                        </div>
-                        <ArrowDown className="w-10 h-10 text-border" />
-                    </React.Fragment>
-                ))}
+          <CardContent className="pt-8 overflow-x-auto">
+            {/* Desktop landscape flowchart */}
+            <div className="hidden lg:flex flex-col items-center gap-y-4">
+              {/* Row 1 */}
+              <div className="flex items-center">
+                <FlowchartNode {...flowchartSteps[0]} />
+                <ArrowRight className="w-10 h-10 mx-6 text-border shrink-0" />
+                <FlowchartNode {...flowchartSteps[1]} />
+                <ArrowRight className="w-10 h-10 mx-6 text-border shrink-0" />
+                <FlowchartNode {...flowchartSteps[2]} />
+              </div>
+              {/* Connector */}
+              <div className="flex justify-end w-full pl-[calc(100%/3*2)]">
+                <div className="w-[calc(50%+28px)] h-12 border-b-2 border-r-2 rounded-br-2xl border-border"></div>
+              </div>
+              {/* Row 2 */}
+              <div className="flex items-center">
+                <FlowchartNode {...flowchartSteps[5]} />
+                <ArrowRight className="w-10 h-10 mx-6 text-border shrink-0 -scale-x-100" />
+                <FlowchartNode {...flowchartSteps[4]} />
+                <ArrowRight className="w-10 h-10 mx-6 text-border shrink-0 -scale-x-100" />
+                <FlowchartNode {...flowchartSteps[3]} />
+              </div>
+            </div>
 
-                <div className="w-full p-6 text-center border-2 rounded-lg shadow-inner bg-card border-emerald-500/50">
-                    <div className="flex flex-col items-center">
-                        <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-emerald-500/10 ring-8 ring-background">
-                            {finalFlowStep.icon}
-                        </div>
-                        <h3 className="mt-1 text-xl font-semibold">{finalFlowStep.actor}</h3>
-                        <p className="mt-2 text-muted-foreground">{finalFlowStep.action}</p>
-                    </div>
+            {/* Mobile & Tablet vertical flowchart */}
+            <div className="flex flex-col items-center max-w-2xl gap-8 mx-auto lg:hidden">
+              {flowchartSteps.map((item, index) => (
+                <React.Fragment key={item.step}>
+                  <FlowchartNode {...item} />
+                  {index < flowchartSteps.length - 1 && (
+                    <ArrowDown className="w-10 h-10 text-border" />
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+
+            {/* Connector to final step */}
+            <div className="flex justify-center my-8">
+              <ArrowDown className="w-10 h-10 text-border" />
+            </div>
+
+            <div className="w-full max-w-lg p-6 mx-auto text-center border-2 rounded-lg shadow-inner bg-card border-emerald-500/50">
+              <div className="flex flex-col items-center">
+                <div className="flex items-center justify-center w-20 h-20 mb-4 rounded-full bg-emerald-500/10 ring-8 ring-background">
+                  {finalFlowStep.icon}
                 </div>
+                <h3 className="mt-1 text-xl font-semibold">{finalFlowStep.actor}</h3>
+                <p className="mt-2 text-muted-foreground">{finalFlowStep.action}</p>
+              </div>
             </div>
           </CardContent>
         </Card>
 
         <div className="pt-16 mt-16 mb-8 text-center border-t">
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Key Features</h2>
-            <p className="mt-2 text-lg text-muted-foreground">
-                A comprehensive suite of tools for intelligent financial management.
-            </p>
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Key Features</h2>
+          <p className="mt-2 text-lg text-muted-foreground">
+            A comprehensive suite of tools for intelligent financial management.
+          </p>
         </div>
 
         <div className="grid max-w-6xl gap-8 mx-auto md:grid-cols-2 lg:grid-cols-4">
-            {keyFeatures.map((feature, index) => (
-                <Card key={index} className="flex flex-col shadow-md">
-                    <CardHeader className="flex-row items-start gap-4">
-                        <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 shrink-0">
-                            {feature.icon}
-                        </div>
-                        <CardTitle className="text-lg leading-snug">{feature.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-0">
-                        <p className="text-muted-foreground">
-                            {feature.description}
-                        </p>
-                    </CardContent>
-                </Card>
-            ))}
+          {keyFeatures.map((feature, index) => (
+            <Card key={index} className="flex flex-col shadow-md">
+              <CardHeader className="flex-row items-start gap-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 shrink-0">
+                  {feature.icon}
+                </div>
+                <CardTitle className="text-lg leading-snug">{feature.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="pt-0">
+                <p className="text-muted-foreground">
+                  {feature.description}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </main>
     </div>

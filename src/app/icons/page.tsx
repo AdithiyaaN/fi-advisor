@@ -396,6 +396,81 @@ export default function IconsPage() {
             </Card>
           ))}
         </div>
+
+        <div className="pt-16 mt-16 mb-8 text-center border-t">
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">System Architecture</h2>
+          <p className="mt-2 text-lg text-muted-foreground">
+            How we securely connect your data to AI-powered insights.
+          </p>
+        </div>
+
+        <Card className="max-w-6xl mx-auto shadow-lg">
+          <CardContent className="p-4 sm:p-8">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+              {/* Column 1: Input & Control */}
+              <div className="space-y-6">
+                <div className="p-4 space-y-2 border rounded-lg shadow-sm bg-background">
+                  <h3 className="flex items-center gap-3 font-semibold text-foreground">
+                    <span className="flex items-center justify-center w-10 h-10 rounded-lg shrink-0 bg-primary/10 text-primary"><User className="w-5 h-5" /></span>
+                    <span className="text-base">User Interaction</span>
+                  </h3>
+                  <p className="pl-14 text-sm text-muted-foreground">Natural language queries via chat, voice, or web interface.</p>
+                </div>
+                <div className="p-4 space-y-2 border rounded-lg shadow-sm bg-background">
+                  <h3 className="flex items-center gap-3 font-semibold text-foreground">
+                    <span className="flex items-center justify-center w-10 h-10 rounded-lg shrink-0 bg-primary/10 text-primary"><FileOutput className="w-5 h-5" /></span>
+                    <span className="text-base">User Control</span>
+                  </h3>
+                  <p className="pl-14 text-sm text-muted-foreground">Users own and can export their generated financial insights.</p>
+                </div>
+              </div>
+              
+              {/* Column 2: Core Data Flow */}
+              <div className="flex flex-col items-center justify-start gap-4 p-4 rounded-lg bg-muted/50">
+                <div className="w-full p-4 text-center border rounded-lg shadow-sm bg-background">
+                  <h3 className="flex items-center justify-center gap-2 font-semibold"><BrainCircuit className="w-5 h-5 shrink-0" /> AI Agent</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">Processes requests & generates insights.</p>
+                </div>
+                <ArrowDown className="w-8 h-8 text-border" />
+                <div className="w-full p-4 text-center border rounded-lg shadow-sm bg-background">
+                  <h3 className="flex items-center justify-center gap-2 font-semibold"><Server className="w-5 h-5 shrink-0" /> Fi Money MCP</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">Aggregates & structures data.</p>
+                </div>
+                <ArrowDown className="w-8 h-8 text-border" />
+                <div className="w-full p-4 text-center border rounded-lg shadow-sm bg-background">
+                  <h3 className="flex items-center justify-center gap-2 font-semibold"><Building className="w-5 h-5 shrink-0" /> Financial Institutions</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">Provides data from 18+ sources.</p>
+                </div>
+              </div>
+
+              {/* Column 3: Guiding Principles */}
+              <div className="space-y-6">
+                <div className="p-4 space-y-2 border rounded-lg shadow-sm bg-background">
+                  <h3 className="flex items-center gap-3 font-semibold text-foreground">
+                    <span className="flex items-center justify-center w-10 h-10 rounded-lg shrink-0 bg-primary/10 text-primary"><Sparkles className="w-5 h-5" /></span>
+                    <span className="text-base">Key Functionalities</span>
+                  </h3>
+                  <ul className="pl-14 text-sm text-muted-foreground list-disc list-inside space-y-1">
+                    <li>Analysis & Planning</li>
+                    <li>Debt Optimization</li>
+                    <li>Anomaly Detection</li>
+                  </ul>
+                </div>
+                <div className="p-4 space-y-2 border rounded-lg shadow-sm bg-background">
+                  <h3 className="flex items-center gap-3 font-semibold text-foreground">
+                    <span className="flex items-center justify-center w-10 h-10 rounded-lg shrink-0 bg-primary/10 text-primary"><ShieldCheck className="w-5 h-5" /></span>
+                    <span className="text-base">Security & Privacy</span>
+                  </h3>
+                   <ul className="pl-14 text-sm text-muted-foreground list-disc list-inside space-y-1">
+                    <li>Consent-based access</li>
+                    <li>End-to-end encryption</li>
+                    <li>Multi-factor authentication</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </main>
     </div>
   );

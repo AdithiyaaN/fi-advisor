@@ -29,7 +29,7 @@ const demoSteps = [
             {
                 icon: <Cpu className="w-5 h-5 text-primary" />,
                 title: "Ask Simple & Complex Questions",
-                text: "Start with a simple query like 'How much is my car loan?'. Then, ask something complex: 'Can I afford to buy a new laptop for ₹1,00,000?'. Explain that behind the scenes, a Genkit Flow is taking your question and your financial data, sending it to Gemini for a personalized answer."
+                text: "Start with a simple query like 'How much is my car loan?'. Then, ask something complex: 'Can I afford to buy a new laptop for ₹1,00,000?'. Explain that a Genkit Flow takes your question and financial data, sending it to Gemini for a deeply personalized answer."
             },
             {
                 icon: <BrainCircuit className="w-5 h-5 text-primary" />,

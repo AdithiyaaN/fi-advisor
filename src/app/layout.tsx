@@ -22,18 +22,8 @@ export default async function RootLayout({
   const financialData = await getFinancialDataFromMcp();
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark">
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                const theme = localStorage.getItem('app-theme') || 'glow';
-                document.documentElement.setAttribute('data-theme', theme);
-              })();
-            `,
-          }}
-        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -50,7 +40,6 @@ export default async function RootLayout({
           'font-body antialiased',
           'min-h-screen bg-background font-sans'
         )}
-        suppressHydrationWarning
       >
         <CursorGlow />
         <SidebarProvider>

@@ -16,7 +16,6 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { LayoutDashboard, Settings, Wallet } from 'lucide-react';
 import type { FinancialData } from '@/lib/mcp-data';
-import { ThemeToggle } from './theme-toggle';
 
 type AppSidebarProps = {
   user: FinancialData['user'];
@@ -87,7 +86,6 @@ export function AppSidebar({ user }: AppSidebarProps) {
         </SidebarMenu>
       </SidebarContent>
       <SidebarFooter className="flex flex-col gap-4">
-        <ThemeToggle />
         <SidebarSeparator />
         <div className="flex items-center gap-3 p-2 group-data-[collapsible=icon]:p-0 group-data-[collapsible=icon]:justify-center">
           <Avatar className="size-9">

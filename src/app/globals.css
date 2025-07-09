@@ -5,74 +5,76 @@
 @layer base {
   :root {
     --background: 240 10% 3.9%;
-    --foreground: 210 40% 98%;
+    --foreground: 0 0% 98%;
     --card: 240 5.9% 10%;
-    --card-foreground: 210 40% 98%;
+    --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 261 51% 47%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 262 84% 60%;
+    --primary-foreground: 262 84% 98%;
+    --secondary: 174 100% 29%;
+    --secondary-foreground: 0 0% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
     --accent: 174 100% 29%;
-    --accent-foreground: 210 40% 98%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 261 51% 47%;
-    --chart-1: 261 51% 47%;
+    --ring: 262 84% 60%;
+    --chart-1: 262 84% 60%;
     --chart-2: 174 100% 29%;
     --chart-3: 47.9 95.8% 53.1%;
     --chart-4: 22.8 95.3% 62%;
     --chart-5: 280.4 70.3% 63.3%;
     --radius: 0.5rem;
     --sidebar-background: 240 10% 3.9%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 261 51% 47%;
-    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 262 84% 60%;
+    --sidebar-primary-foreground: 262 84% 98%;
     --sidebar-accent: 217.2 32.6% 17.5%;
-    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 217.2 32.6% 17.5%;
-    --sidebar-ring: 261 51% 47%;
+    --sidebar-ring: 262 84% 60%;
+    --cursor-glow: 262 84% 70%;
   }
 
   .dark {
     --background: 240 10% 3.9%;
-    --foreground: 210 40% 98%;
+    --foreground: 0 0% 98%;
     --card: 240 5.9% 10%;
-    --card-foreground: 210 40% 98%;
+    --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 261 51% 47%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 262 84% 60%;
+    --primary-foreground: 262 84% 98%;
+    --secondary: 174 100% 29%;
+    --secondary-foreground: 0 0% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
     --accent: 174 100% 29%;
-    --accent-foreground: 210 40% 98%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 261 51% 47%;
-    --chart-1: 261 51% 47%;
+    --ring: 262 84% 60%;
+    --chart-1: 262 84% 60%;
     --chart-2: 174 100% 29%;
     --chart-3: 47.9 95.8% 53.1%;
     --chart-4: 22.8 95.3% 62%;
     --chart-5: 280.4 70.3% 63.3%;
     --radius: 0.5rem;
     --sidebar-background: 240 10% 3.9%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 261 51% 47%;
-    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 262 84% 60%;
+    --sidebar-primary-foreground: 262 84% 98%;
     --sidebar-accent: 217.2 32.6% 17.5%;
-    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 217.2 32.6% 17.5%;
-    --sidebar-ring: 261 51% 47%;
+    --sidebar-ring: 262 84% 60%;
+    --cursor-glow: 262 84% 70%;
   }
 }
 
@@ -82,5 +84,38 @@
   }
   body {
     @apply bg-background text-foreground;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' style='cursor: none;'><circle cx='12' cy='12' r='4' fill='white' /></svg>")
+        12 12,
+      auto;
+  }
+  
+  html, body, button, a {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' style='cursor: none;'><circle cx='12' cy='12' r='4' fill='white' /></svg>") 12 12, auto !important;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: radial-gradient(circle at var(--x, 0) var(--y, 0), hsl(var(--cursor-glow)/0.4), transparent 30vmin);
+    background-repeat: no-repeat;
+    transition: background .2s ease-out;
+  }
+
+  @property --x {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 0px;
+  }
+
+  @property --y {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 0px;
   }
 }

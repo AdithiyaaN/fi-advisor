@@ -40,8 +40,8 @@
     
     /* Glow Theme Specific Variables */
     --cursor-glow-color: hsl(262 84% 70% / 0.4);
-    --card-shadow: 0 4px 50px -5px hsl(var(--primary)/0.7);
-    --card-shadow-hover: 0 4px 60px -5px hsl(var(--primary)/0.8);
+    --card-shadow: 0 8px 100px -15px hsl(var(--primary)/0.8);
+    --card-shadow-hover: 0 10px 120px -15px hsl(var(--primary)/0.9);
   }
 
   [data-theme="original-dark"] {

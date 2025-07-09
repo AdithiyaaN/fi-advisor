@@ -22,8 +22,18 @@ export default async function RootLayout({
   const financialData = await getFinancialDataFromMcp();
 
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const theme = localStorage.getItem('app-theme') || 'glow';
+                document.documentElement.setAttribute('data-theme', theme);
+              })();
+            `,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

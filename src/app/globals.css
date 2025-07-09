@@ -37,44 +37,17 @@
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 217.2 32.6% 17.5%;
     --sidebar-ring: 262 84% 60%;
-    --cursor-glow: 262 84% 70%;
+    
+    /* Glow Theme Specific Variables */
+    --cursor-glow-color: hsl(262 84% 70% / 0.4);
+    --card-shadow: 0 4px 50px -5px hsl(var(--primary)/0.7);
+    --card-shadow-hover: 0 4px 60px -5px hsl(var(--primary)/0.8);
   }
 
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 5.9% 10%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 262 84% 60%;
-    --primary-foreground: 262 84% 98%;
-    --secondary: 174 100% 29%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 174 100% 29%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 262 84% 60%;
-    --chart-1: 262 84% 60%;
-    --chart-2: 174 100% 29%;
-    --chart-3: 47.9 95.8% 53.1%;
-    --chart-4: 22.8 95.3% 62%;
-    --chart-5: 280.4 70.3% 63.3%;
-    --radius: 0.5rem;
-    --sidebar-background: 240 10% 3.9%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 262 84% 60%;
-    --sidebar-primary-foreground: 262 84% 98%;
-    --sidebar-accent: 217.2 32.6% 17.5%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 217.2 32.6% 17.5%;
-    --sidebar-ring: 262 84% 60%;
-    --cursor-glow: 262 84% 70%;
+  [data-theme="original-dark"] {
+    --cursor-glow-color: transparent;
+    --card-shadow: 0 4px 30px -5px hsl(var(--primary)/0.5);
+    --card-shadow-hover: 0 4px 40px -5px hsl(var(--primary)/0.6);
   }
 }
 
@@ -102,7 +75,7 @@
     height: 100vh;
     pointer-events: none;
     z-index: 9999;
-    background-image: radial-gradient(circle at var(--x, 0) var(--y, 0), hsl(var(--cursor-glow)/0.4), transparent 30vmin);
+    background-image: radial-gradient(circle at var(--x, 0) var(--y, 0), var(--cursor-glow-color), transparent 30vmin);
     background-repeat: no-repeat;
     transition: background .2s ease-out;
   }

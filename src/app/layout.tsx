@@ -6,25 +6,13 @@ import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
 import { getFinancialDataFromMcp } from '@/services/mcp-service';
 import { ChatAssistant } from '@/components/chat-assistant';
 import { AppSidebar } from '@/components/app-sidebar';
+import * as React from 'react';
+import { CursorGlow } from '@/components/cursor-glow';
 
 export const metadata: Metadata = {
   title: 'Fi Advisor',
   description: 'Your personal AI-powered financial advisor.',
 };
-
-function CursorGlow() {
-  React.useEffect(() => {
-    const updateCursor = (e: MouseEvent) => {
-      document.body.style.setProperty('--x', `${e.clientX}px`);
-      document.body.style.setProperty('--y', `${e.clientY}px`);
-    };
-    window.addEventListener('mousemove', updateCursor);
-    return () => {
-      window.removeEventListener('mousemove', updateCursor);
-    };
-  }, []);
-  return null;
-}
 
 export default async function RootLayout({
   children,
@@ -54,6 +42,7 @@ export default async function RootLayout({
         )}
         suppressHydrationWarning
       >
+        <CursorGlow />
         <SidebarProvider>
           <AppSidebar user={financialData.user} />
           <SidebarInset>{children}</SidebarInset>

@@ -20,7 +20,7 @@ export default async function RootLayout({
   const financialData = await getFinancialDataFromMcp();
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

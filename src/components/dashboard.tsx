@@ -59,7 +59,7 @@ export function Dashboard({ financialData }: DashboardProps) {
         />
       </div>
       <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
-        <Card className="xl:col-span-2 shadow-xl ring-8 ring-white dark:ring-black/20">
+        <Card className="xl:col-span-2">
           <CardHeader>
             <CardTitle>Net Worth Over Time</CardTitle>
             <CardDescription>
@@ -70,7 +70,7 @@ export function Dashboard({ financialData }: DashboardProps) {
             <NetWorthChart data={financialData.netWorthHistory} />
           </CardContent>
         </Card>
-        <Card className="shadow-lg">
+        <Card>
           <CardHeader className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between pb-2">
             <div>
               <CardTitle>Asset vs. Liability</CardTitle>
@@ -106,7 +106,7 @@ export function Dashboard({ financialData }: DashboardProps) {
         </Card>
       </div>
       <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
-        <Card className="shadow-lg xl:col-span-2">
+        <Card className="xl:col-span-2">
           <Tabs defaultValue="investments">
             <CardHeader className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
@@ -134,7 +134,7 @@ export function Dashboard({ financialData }: DashboardProps) {
             </CardContent>
           </Tabs>
         </Card>
-        <Card className="shadow-lg xl:col-span-1">
+        <Card className="xl:col-span-1">
           <CardHeader>
             <CardTitle>AI Financial Summary</CardTitle>
             <CardDescription>

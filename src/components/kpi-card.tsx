@@ -36,7 +36,7 @@ export function KpiCard({ title, value, icon, trend, trendKey, isNegative = fals
   const trendColor = isGoodTrend ? 'text-emerald-500' : 'text-red-500';
 
   return (
-    <Card className="shadow-lg">
+    <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
           {icon}

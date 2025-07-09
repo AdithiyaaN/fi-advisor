@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  /* Default Theme: original-dark */
+  :root, [data-theme="original-dark"] {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 5.9% 10%;
@@ -38,16 +39,17 @@
     --sidebar-border: 217.2 32.6% 17.5%;
     --sidebar-ring: 262 84% 60%;
     
-    /* Glow Theme Specific Variables */
-    --cursor-glow-color: hsl(262 84% 70% / 0.4);
-    --card-shadow: 0 8px 100px -15px hsl(var(--primary)/0.8);
-    --card-shadow-hover: 0 10px 120px -15px hsl(var(--primary)/0.9);
-  }
-
-  [data-theme="original-dark"] {
+    /* Original Theme Specific Variables */
     --cursor-glow-color: transparent;
     --card-shadow: 0 4px 30px -5px hsl(var(--primary)/0.5);
     --card-shadow-hover: 0 4px 40px -5px hsl(var(--primary)/0.6);
+  }
+
+  /* Glow Theme Overrides */
+  [data-theme="glow"] {
+    --cursor-glow-color: hsl(262 84% 70% / 0.4);
+    --card-shadow: 0 8px 100px -15px hsl(var(--primary)/0.8);
+    --card-shadow-hover: 0 10px 120px -15px hsl(var(--primary)/0.9);
   }
 }
 

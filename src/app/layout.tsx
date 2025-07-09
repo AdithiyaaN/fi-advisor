@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
-import { getFinancialData } from '@/lib/mcp-data';
+import { getFinancialDataFromMcp } from '@/services/mcp-service';
 import { ChatAssistant } from '@/components/chat-assistant';
 import { AppSidebar } from '@/components/app-sidebar';
 
@@ -17,7 +17,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const financialData = await getFinancialData();
+  const financialData = await getFinancialDataFromMcp();
 
   return (
     <html lang="en" suppressHydrationWarning>

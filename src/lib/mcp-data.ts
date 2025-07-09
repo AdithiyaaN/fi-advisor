@@ -1,3 +1,6 @@
+// This file defines the data structure for the financial information
+// and provides the static mock data used throughout the application.
+
 export type FinancialData = {
   user: {
     name: string;
@@ -76,9 +79,4 @@ export const mcpData: FinancialData = {
     { date: '2023-07-01', score: 765 },
     { date: '2024-01-01', score: 780 },
   ]
-};
-
-export const getFinancialData = async (): Promise<FinancialData> => {
-  // In a real application, this would be an API call to Fi's MCP Server.
-  return new Promise(resolve => setTimeout(() => resolve(mcpData), 500));
 };

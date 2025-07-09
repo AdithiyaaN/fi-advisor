@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { Dashboard } from '@/components/dashboard';
-import { getFinancialData, FinancialData } from '@/lib/mcp-data';
+import type { FinancialData } from '@/lib/mcp-data';
+import { getFinancialDataFromMcp } from '@/services/mcp-service';
 import { getRealtimeFinancialData } from '@/app/actions';
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -13,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     async function loadData() {
       // Start with the static data
-      const staticData = await getFinancialData();
+      const staticData = await getFinancialDataFromMcp();
       setFinancialData(staticData);
       setIsLoading(false); // Show initial dashboard
 
